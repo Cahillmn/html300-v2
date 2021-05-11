@@ -1,4 +1,7 @@
-[
+
+
+const cardContent = [
+
     {
       "name": "Paolo Maldini",
       "jobTitle": "Front End Developer",
@@ -51,4 +54,33 @@
          "HTML", "CSS", "JavaScript", "React", "Vue", "Redux"
       ]
     }
+
    ]
+
+   let cardContentHTML = cardContent.map(function(el){
+     return `
+   <main>
+        <section class="section1">
+            <img src="img/headshot.jpg" alt="Dog with a bowtie">
+            <h1>${el.name}</h1>
+            <h2>${el.jobTitle}</h2>
+        </section>
+        <section class="section2">
+            <p><span>Company:</span>${el.company}</p>
+            <p><span>Experience:</span>${el.experience}</p>
+            <p><span>School:</span>${el.school}</p>
+            <p><span>Major:</span>${el.major}</p>
+            <p><span>Email:</span>${el.email}</p>
+            <div class="link">
+                <img src="img/linkedin.svg" alt="Linkedin logo">
+                <p>${el.linkedInUrl}</p>
+            </div>
+        </section>
+    </main>
+    `;
+
+  });
+
+  document.querySelector(".container").innerHTML = cardContentHTML;
+   
+
