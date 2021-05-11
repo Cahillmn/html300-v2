@@ -4,3 +4,28 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+.main nav{
+    display: flex;
+    flex-direction: row;
+
+}
+
+nav {
+    background-color: #00A3AD;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+}
+
+nav li {
+    list-style-type: none;
+    padding: 1rem;
+}
+
+.navigation-items {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
