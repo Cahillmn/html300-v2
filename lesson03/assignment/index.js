@@ -1,5 +1,7 @@
 
+
 const cardContent = [
+
     {
       "name": "Paolo Maldini",
       "jobTitle": "Front End Developer",
@@ -52,7 +54,9 @@ const cardContent = [
          "HTML", "CSS", "JavaScript", "React", "Vue", "Redux"
       ]
     }
+
    ]
+
    let cardContentHTML = cardContent.map(function(el){
      return `
    <main>
@@ -79,3 +83,4 @@ const cardContent = [
 
   document.querySelector(".container").innerHTML = cardContentHTML;
    
+
