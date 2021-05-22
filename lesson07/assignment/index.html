@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>Store</title>
+</head>
+
+<body class="home">
+  <header>
+    <img class="banner" src="images/banner.png" alt="Harry Potter logo">
+  </header>
+  <nav>
+    <ul id="menu">
+      <li class="menuItem"><a href="index.html">Home</a></li>
+      <li><i class="fas fa-bolt" aria-hidden="true"></i></li>
+      <li class="menuItem"><a href="#.html">Blog</a></li>
+      <li class="fa fa-bolt" aria-hidden="true"></li>
+      <li class="menuItem"><a href="#.html">Characters</a></li>
+      <li class="fa fa-bolt" aria-hidden="true"></li>
+      </li>
+      <li class="menuItem"><a href="#.html">Store</a></li>
+
+    </ul>
+  </nav>
+  <main class="main">
+
+    <div>
+      <button id="jsstyle" onclick="display_random_image();">See This Week's Deal</button>
+    </div>
+    <div id="container"></div>
+
+    <section>
+      <article>
+        <img class="bundle" src="images/Trunks_bundle_large.png">
+        <h3>Hogwarts School Trunk Combo Bundle</h3>
+        <p>$150</p>
+        <button>Add to Cart</button>
+      </article>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>&copy; Copyright 2021</p>
+    <p>Store images from https://harrypottershop.com</p>
+    <p>Book images from https://amazon.com</p>
+
+  </footer>
+
+  <script>
+    function display_random_image() {
+      var theImages = [{
+          src: "images/gryffindor-trunk.png",
+        }, {
+          src: "images/harrypottertrunk.png",
+          width: "455",
+          height: "480"
+        }, {
+          src: "images/hufflepuff-trunk.png",
+          width: "455",
+          height: "480"
+        },
+        {
+          src: "images/ravenclaw-trunk.png",
+          width: "455",
+          height: "480"
+        },
+        {
+          src: "images/slytherin-trunk.png",
+          width: "455",
+          height: "480"
+        },
+        {
+          src: "images/Trunks_bundle_large.png",
+          width: "455",
+          height: "480"
+        }
+      ];
+
+      var preBuffer = [];
+      for (var i = 0, j = theImages.length; i < j; i++) {
+        preBuffer[i] = new Image();
+        preBuffer[i].src = theImages[i].src;
+        preBuffer[i].width = theImages[i].width;
+        preBuffer[i].height = theImages[i].height;
+      }
+
+      // create random image number
+      function getRandomInt(min, max) {
+        //  return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        imn = Math.floor(Math.random() * (max - min + 1)) + min;
+        return preBuffer[imn];
+      }
+
+      // 0 is first image,   preBuffer.length - 1) is  last image
+
+      var newImage = getRandomInt(0, preBuffer.length - 1);
+
+      // remove the previous images
+      var images = document.getElementsByTagName('img');
+      var l = images.length;
+      for (var p = 0; p < l; p++) {
+        images[0].parentNode.removeChild(images[0]);
+      }
+      // display the image  
+      document.body.appendChild(newImage);
+    }
+  </script>
+
+</body>
+
+</html>
