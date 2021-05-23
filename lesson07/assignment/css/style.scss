@@ -59,20 +59,20 @@ main {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 40%;
+        width: 75%;
         padding-top: 3rem;
     }
 
-    h1 {
+    h3 {
         color: brown;
-        padding-top: 3rem;
+        padding-top: 2rem;
         text-align: center;
 
     }
 
-    .intro {
-        text-align: center;
-        padding: 3rem 5rem;
+    p {
+        color: black;
+        padding-top: 1rem;
     }
 
     h2 {
@@ -81,36 +81,18 @@ main {
 
     }
 
+    button {
+        margin-top: 1rem;
+    }
+
     .container {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        text-align: center;
 
-        .books {
-            width: 20%;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .book-image {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            padding-bottom: 2rem;
-            
-
-        }
-
-        .book-info {
-            
-            text-align: center;
-
-        }
-
-        .book-info p {
-            padding-top: 1rem;
-        }
+        
     }
 }
 

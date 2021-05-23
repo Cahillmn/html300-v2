@@ -30,16 +30,46 @@
   </nav>
   <main class="main">
 
-    <div>
-      <button id="jsstyle" onclick="display_random_image();">See This Week's Deal</button>
+    <div id="app">
+      <img v-bind:src = "chosenImage" alt = "Random Image">
+      <button @click="picker">See This Weeks Deal!</button>
     </div>
-    <div id="container"></div>
 
-    <section>
+    <section class="container">
       <article>
         <img class="bundle" src="images/Trunks_bundle_large.png">
         <h3>Hogwarts School Trunk Combo Bundle</h3>
-        <p>$150</p>
+        <p>$100</p>
+        <button>Add to Cart</button>
+      </article>
+      <article>
+        <img class="bundle" src="images/harrypottertrunk.png">
+        <h3>Harry Potter Gift Trunk</h3>
+        <p>$225</p>
+        <button>Add to Cart</button>
+      </article>
+      <article>
+        <img class="bundle" src="images/gryffindor-trunk.png">
+        <h3>Gryffindor Gift Trunk</h3>
+        <p>$200</p>
+        <button>Add to Cart</button>
+      </article>
+      <article>
+        <img class="bundle" src="images/slytherin-trunk.png">
+        <h3>Slytherin Gift Trunk</h3>
+        <p>$200</p>
+        <button>Add to Cart</button>
+      </article>
+      <article>
+        <img class="bundle" src="images/ravenclaw-trunk.png">
+        <h3>Ravenclaw Gift Trunk</h3>
+        <p>$200</p>
+        <button>Add to Cart</button>
+      </article>
+      <article>
+        <img class="bundle" src="images/hufflepuff-trunk.png">
+        <h3>Hufflepuff Gift Trunk</h3>
+        <p>$200</p>
         <button>Add to Cart</button>
       </article>
     </section>
@@ -53,65 +83,63 @@
 
   </footer>
 
-  <script>
-    function display_random_image() {
-      var theImages = [{
-          src: "images/gryffindor-trunk.png",
-        }, {
-          src: "images/harrypottertrunk.png",
-          width: "455",
-          height: "480"
-        }, {
-          src: "images/hufflepuff-trunk.png",
-          width: "455",
-          height: "480"
-        },
-        {
-          src: "images/ravenclaw-trunk.png",
-          width: "455",
-          height: "480"
-        },
-        {
-          src: "images/slytherin-trunk.png",
-          width: "455",
-          height: "480"
-        },
-        {
-          src: "images/Trunks_bundle_large.png",
-          width: "455",
-          height: "480"
+  <script type="text/javascript">
+  const CounterApp = 
+    {
+      name: "counter app",
+      data() {
+        return {
+            images: [{
+            src: "images/gryffindor-trunk.png",
+            h3: "Gryffindor Gift Trunk",
+            p: "25% Off!"
+          }, {
+            src: "images/harrypottertrunk.png",
+            h3: "Harry Potter Gift Trunk",
+            p: "25% Off!"
+          }, {
+            src: "images/hufflepuff-trunk.png",
+            h3: "Hufflepuff Gift Trunk",
+            p: "25% Off!"
+          },
+          {
+            src: "images/ravenclaw-trunk.png",
+            h3: "Ravenclaw Gift Trunk",
+            p: "25% Off!"
+          },
+          {
+            src: "images/slytherin-trunk.png",
+            h3: "Slytherin Gift Trunk",
+            p: "25% Off!"
+          },
+          {
+            src: "images/Trunks_bundle_large.png",
+            h3: "Hogwarts School Trunk Combo Bundle",
+            p: "25% Off!"
+          }
+        ],
+
+        // images: [
+        //   "images/gryffindor-trunk.png", "images/harrypottertrunk.png", "images/hufflepuff-trunk.png",
+        //   "images/ravenclaw-trunk.png", "images/slytherin-trunk.png", "images/Trunks_bundle_large.png"
+        // ],
+
+        chosenImage: "images/special-deal.png",
+        chosenHeader: '',
+        chosenParagraph: ''
         }
-      ];
+      },
+      methods: {
+        picker() {
+          var chosenNumber = Math.floor(Math.random() * this.images.length);
+          this.chosenImage = this.images[chosenNumber].src;
+          this.chosenHeader = this.images[chosenNumber].h3;
+          this.chosenParagraph = this.images[chosenNumber].p;
 
-      var preBuffer = [];
-      for (var i = 0, j = theImages.length; i < j; i++) {
-        preBuffer[i] = new Image();
-        preBuffer[i].src = theImages[i].src;
-        preBuffer[i].width = theImages[i].width;
-        preBuffer[i].height = theImages[i].height;
+        }
       }
-
-      // create random image number
-      function getRandomInt(min, max) {
-        //  return Math.floor(Math.random() * (max - min + 1)) + min;
-
-        imn = Math.floor(Math.random() * (max - min + 1)) + min;
-        return preBuffer[imn];
-      }
-
-      // 0 is first image,   preBuffer.length - 1) is  last image
-
-      var newImage = getRandomInt(0, preBuffer.length - 1);
-
-      // remove the previous images
-      var images = document.getElementsByTagName('img');
-      var l = images.length;
-      for (var p = 0; p < l; p++) {
-        images[0].parentNode.removeChild(images[0]);
-      }
-      // display the image  
-      document.body.appendChild(newImage);
     }
+    Vue.createApp(CounterApp).mount('#app')
   </script>
 
 </body>
