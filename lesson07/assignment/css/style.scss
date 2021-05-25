@@ -65,7 +65,7 @@ main {
         }
     }
 
-    #app {
+    .discount {
         img {
             width: 20%;
         }
@@ -92,16 +92,16 @@ main {
     button {
         margin-top: 1rem;
     }
+}
 
-    .container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        text-align: center;
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
 
 
-    }
 }
 
 footer {

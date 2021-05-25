@@ -28,49 +28,24 @@
 
     </ul>
   </nav>
-  <main class="main">
+  <main id="app" class="main">
 
-    <div id="app">
-      <img v-bind:src = "chosenImage" alt = "Random Image">
+    <div class= "discount">
+      <img v-bind:src="chosenImage" alt="Random Image">
+      <h3>{{ chosenName }}</h3>
+      <p>{{ chosenDiscount }}</p>
       <button @click="picker">See This Weeks Deal!</button>
     </div>
 
     <section class="container">
-      <article>
-        <img class="bundle" src="images/Trunks_bundle_large.png">
-        <h3>Hogwarts School Trunk Combo Bundle</h3>
-        <p>$100</p>
-        <button>Add to Cart</button>
-      </article>
-      <article>
-        <img class="bundle" src="images/harrypottertrunk.png">
-        <h3>Harry Potter Gift Trunk</h3>
-        <p>$225</p>
-        <button>Add to Cart</button>
-      </article>
-      <article>
-        <img class="bundle" src="images/gryffindor-trunk.png">
-        <h3>Gryffindor Gift Trunk</h3>
-        <p>$200</p>
-        <button>Add to Cart</button>
-      </article>
-      <article>
-        <img class="bundle" src="images/slytherin-trunk.png">
-        <h3>Slytherin Gift Trunk</h3>
-        <p>$200</p>
-        <button>Add to Cart</button>
-      </article>
-      <article>
-        <img class="bundle" src="images/ravenclaw-trunk.png">
-        <h3>Ravenclaw Gift Trunk</h3>
-        <p>$200</p>
-        <button>Add to Cart</button>
-      </article>
-      <article>
-        <img class="bundle" src="images/hufflepuff-trunk.png">
-        <h3>Hufflepuff Gift Trunk</h3>
-        <p>$200</p>
-        <button>Add to Cart</button>
+      <article v-for="trunk in trunks">
+        <img v-bind:src="trunk.src" v-bind:alt="trunk.name" class="bundle">
+        <h3>{{ trunk.name }}</h3>
+        <p>{{ trunk.price }}</p>
+        <p v-if="trunk.quantity > 10">In stock</p>
+        <p v-else-if="trunk.quantity <= 10 && trunk.quantity > 0">Almost gone</p>
+        <p v-else>Out of Stock</p>
+        <button v-if="trunk.quantity > 0">Add to Cart</button>
       </article>
     </section>
   </main>
@@ -84,57 +59,76 @@
   </footer>
 
   <script type="text/javascript">
-  const CounterApp = 
-    {
+    const CounterApp = {
       name: "counter app",
       data() {
         return {
-            images: [{
-            src: "images/gryffindor-trunk.png",
-            h3: "Gryffindor Gift Trunk",
-            p: "25% Off!"
-          }, {
-            src: "images/harrypottertrunk.png",
-            h3: "Harry Potter Gift Trunk",
-            p: "25% Off!"
-          }, {
-            src: "images/hufflepuff-trunk.png",
-            h3: "Hufflepuff Gift Trunk",
-            p: "25% Off!"
-          },
-          {
-            src: "images/ravenclaw-trunk.png",
-            h3: "Ravenclaw Gift Trunk",
-            p: "25% Off!"
-          },
-          {
-            src: "images/slytherin-trunk.png",
-            h3: "Slytherin Gift Trunk",
-            p: "25% Off!"
-          },
-          {
+          trunks: [{
+
             src: "images/Trunks_bundle_large.png",
-            h3: "Hogwarts School Trunk Combo Bundle",
-            p: "25% Off!"
-          }
-        ],
+              name: "Hogwarts School Trunk Combo Bundle",
+              discount: "25% Off!",
+              price: "$100",
+              quantity:20
+            }, 
+            {
+              src: "images/harrypottertrunk.png",
+              name: "Harry Potter Gift Trunk",
+              discount: "25% Off!",
+              price: "$225",
+              quantity:0
+            },
+            {
+              src: "images/gryffindor-trunk.png",
+              name: "Gryffindor Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:10 
+            },  
+            {
+              src: "images/slytherin-trunk.png",
+              name: "Slytherin Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:8
+            },
+            {
+              src: "images/hufflepuff-trunk.png",
+              name: "Hufflepuff Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:15
+            },
+            {
+              src: "images/ravenclaw-trunk.png",
+              name: "Ravenclaw Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:14
+            },
+            
+          ],
 
-        // images: [
-        //   "images/gryffindor-trunk.png", "images/harrypottertrunk.png", "images/hufflepuff-trunk.png",
-        //   "images/ravenclaw-trunk.png", "images/slytherin-trunk.png", "images/Trunks_bundle_large.png"
-        // ],
+          // images: [
+          //   "images/gryffindor-trunk.png", "images/harrypottertrunk.png", "images/hufflepuff-trunk.png",
+          //   "images/ravenclaw-trunk.png", "images/slytherin-trunk.png", "images/Trunks_bundle_large.png"
+          // ],
 
-        chosenImage: "images/special-deal.png",
-        chosenHeader: '',
-        chosenParagraph: ''
+          chosenImage: "images/special-deal.png",
+          chosenName: '',
+          chosenDiscount: '',
+          src: '',
+          name: '',
+          discount: '',
+          price: '',
         }
       },
       methods: {
         picker() {
-          var chosenNumber = Math.floor(Math.random() * this.images.length);
-          this.chosenImage = this.images[chosenNumber].src;
-          this.chosenHeader = this.images[chosenNumber].h3;
-          this.chosenParagraph = this.images[chosenNumber].p;
+          var chosenNumber = Math.floor(Math.random() * this.trunks.length);
+          this.chosenImage = this.trunks[chosenNumber].src;
+          this.chosenName = this.trunks[chosenNumber].name;
+          this.chosenDiscount = this.trunks[chosenNumber].discount;
 
         }
       }
