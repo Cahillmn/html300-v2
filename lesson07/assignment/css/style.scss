@@ -65,33 +65,65 @@ main {
         }
     }
 
-    .discount {
-        img {
-            width: 20%;
-        }
-    }
-
-    h3 {
-        color: brown;
-        padding-top: 2rem;
-        text-align: center;
-
-    }
-
-    p {
-        color: black;
-        padding-top: 1rem;
+    button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+        padding: .5rem 1rem;
+        background-color: gold;
+        color: rgb(121, 80, 27);
+        font-weight: bold; 
     }
 
     h2 {
         color: brown;
         text-align: center;
+        padding-top: 5rem;
 
     }
 
-    button {
-        margin-top: 1rem;
+    .discount {
+
+        background-color: black;
+        padding-bottom: 3rem;
+        width: 25%;
+        margin: 0 auto;
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            padding-top: 3rem;
+        }
+
+        button {
+            margin-top: 0rem;
+        }
     }
+
+    h3 {
+        color: rgb(238, 118, 118);
+        padding-top: 1rem;
+        text-align: center;
+
+    }
+
+    p {
+        color: white;
+        padding-top: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+}
+
+.shop {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: brown;
 }
 
 .container {
@@ -100,6 +132,16 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     text-align: center;
+    margin-top: 2rem;
+
+    h3 {
+        color:brown;
+    }
+
+    p{
+        color:black;
+        margin-bottom: 0rem;
+    }
 
 
 }
