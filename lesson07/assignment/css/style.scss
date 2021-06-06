@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+
+    .banner {
+        height: 250px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+
+    }
+}
+
+nav {
+    background-color: rgb(121, 80, 27);
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    li {
+        color: gold;
+        list-style-type: none;
+        padding: 1rem;
+        padding-right: 1.5rem;
+        transition: transform 2s;
+
+        a {
+            color: gold;
+        }
+    }
+
+    li:hover {
+        transform: scale(1.25, 1.25);
+    }
+}
+
+body {
+    background-color: lightgoldenrodyellow;
+
+}
+
+main {
+    min-height: 400px;
+
+    article {
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 75%;
+            padding-top: 3rem;
+        }
+    }
+
+    button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+        padding: .5rem 1rem;
+        background-color: gold;
+        color: rgb(121, 80, 27);
+        font-weight: bold; 
+    }
+
+    h2 {
+        color: brown;
+        text-align: center;
+        padding-top: 5rem;
+
+    }
+
+    .discount {
+
+        background-color: black;
+        padding-bottom: 3rem;
+        width: 25%;
+        margin: 0 auto;
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            padding-top: 3rem;
+        }
+
+        button {
+            margin-top: 0rem;
+        }
+    }
+
+    h3 {
+        color: rgb(238, 118, 118);
+        padding-top: 1rem;
+        text-align: center;
+
+    }
+
+    p {
+        color: white;
+        padding-top: 1rem;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+}
+
+.shop {
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: brown;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 2rem;
+
+    h3 {
+        color:brown;
+    }
+
+    p{
+        color:black;
+        margin-bottom: 0rem;
+    }
+
+
+}
+
+footer {
+    min-height: 7rem;
+    background-color: black;
+    color: gold;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+
+    p {
+        padding-top: .5rem;
+    }
+}

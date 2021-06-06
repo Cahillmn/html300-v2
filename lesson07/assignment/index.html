@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>Store</title>
+</head>
+
+<body class="home">
+  <header>
+    <img class="banner" src="images/banner.png" alt="Harry Potter logo">
+  </header>
+  <nav>
+    <ul id="menu">
+      <li class="menuItem"><a href="index.html">Home</a></li>
+      <li><i class="fas fa-bolt" aria-hidden="true"></i></li>
+      <li class="menuItem"><a href="#.html">Blog</a></li>
+      <li class="fa fa-bolt" aria-hidden="true"></li>
+      <li class="menuItem"><a href="#.html">Characters</a></li>
+      <li class="fa fa-bolt" aria-hidden="true"></li>
+      </li>
+      <li class="menuItem"><a href="#.html">Store</a></li>
+
+    </ul>
+  </nav>
+  <main id="app" class="main">
+
+    <h1 class="shop">The Harry Potter Shop</h1>
+
+    <div class= "discount">
+      <img v-bind:src="chosenImage" alt="Random Image">
+      <h3>{{ chosenName }}</h3>
+      <p>{{ chosenDiscount }}</p>
+      <button @click="picker">See This Weeks Deal!</button>
+    </div>
+
+    <h2>Harry Potter Trunk Sets</h2>
+    
+    <section class="container">
+      <article v-for="trunk in trunks">
+        <img v-bind:src="trunk.src" v-bind:alt="trunk.name" class="bundle">
+        <h3>{{ trunk.name }}</h3>
+        <p>{{ trunk.price }}</p>
+        <p v-if="trunk.quantity > 10">In stock</p>
+        <p v-else-if="trunk.quantity <= 10 && trunk.quantity > 0">Almost gone</p>
+        <p v-else>Out of Stock</p>
+        <button v-if="trunk.quantity > 0">Add to Cart</button>
+      </article>
+    </section>
+  </main>
+
+
+  <footer>
+    <p>&copy; Copyright 2021</p>
+    <p>Store images from https://harrypottershop.com</p>
+    <p>Book images from https://amazon.com</p>
+
+  </footer>
+
+  <script type="text/javascript">
+    const CounterApp = {
+      name: "counter app",
+      data() {
+        return {
+          trunks: [{
+
+            src: "images/Trunks_bundle_large.png",
+              name: "Hogwarts School Trunk Combo Bundle",
+              discount: "25% Off!",
+              price: "$100",
+              quantity:20
+            }, 
+            {
+              src: "images/harrypottertrunk.png",
+              name: "Harry Potter Gift Trunk",
+              discount: "25% Off!",
+              price: "$225",
+              quantity:0
+            },
+            {
+              src: "images/gryffindor-trunk.png",
+              name: "Gryffindor Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:10 
+            },  
+            {
+              src: "images/slytherin-trunk.png",
+              name: "Slytherin Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:8
+            },
+            {
+              src: "images/hufflepuff-trunk.png",
+              name: "Hufflepuff Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:15
+            },
+            {
+              src: "images/ravenclaw-trunk.png",
+              name: "Ravenclaw Gift Trunk",
+              discount: "25% Off!",
+              price: "$200",
+              quantity:14
+            },
+            
+          ],
+
+          // images: [
+          //   "images/gryffindor-trunk.png", "images/harrypottertrunk.png", "images/hufflepuff-trunk.png",
+          //   "images/ravenclaw-trunk.png", "images/slytherin-trunk.png", "images/Trunks_bundle_large.png"
+          // ],
+
+          chosenImage: "images/special-deal.png",
+          chosenName: '',
+          chosenDiscount: '',
+          src: '',
+          name: '',
+          discount: '',
+          price: '',
+        }
+      },
+      methods: {
+        picker() {
+          var chosenNumber = Math.floor(Math.random() * this.trunks.length);
+          this.chosenImage = this.trunks[chosenNumber].src;
+          this.chosenName = this.trunks[chosenNumber].name;
+          this.chosenDiscount = this.trunks[chosenNumber].discount;
+
+        }
+      }
+    }
+    Vue.createApp(CounterApp).mount('#app')
+  </script>
+
+</body>
+
+</html>
